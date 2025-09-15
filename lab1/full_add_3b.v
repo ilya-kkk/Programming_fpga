@@ -1,9 +1,35 @@
-module full_add_3b( 
-    input [2:0] a, b,
-    input cin,
-    output [2:0] cout,
-    output [2:0] sum );
+module full_add_3b( // Модуль 3-битного сумматора на основе трех одноразрядных full_add
+    input [2:0] a, b, // 3-битные слагаемые
+    input cin,        // Входной перенос (для младшего разряда)
+    output [2:0] cout, // Вектора переносов по разрядам [2]=старший
+    output [2:0] sum ); // 3-битная сумма
 
-	// write code here
+	wire c0, c1, c2; // Внутренние переносы между разрядами
+
+	full_add fa0( // Младший разряд: складываем a[0], b[0], cin
+		.a(a[0]),
+		.b(b[0]),
+		.cin(cin),
+		.sum(sum[0]),
+		.cout(c0)
+	);
+
+	full_add fa1( // Средний разряд: входной перенос — c0
+		.a(a[1]),
+		.b(b[1]),
+		.cin(c0),
+		.sum(sum[1]),
+		.cout(c1)
+	);
+
+	full_add fa2( // Старший разряд: входной перенос — c1
+		.a(a[2]),
+		.b(b[2]),
+		.cin(c1),
+		.sum(sum[2]),
+		.cout(c2)
+	);
+
+	assign cout = {c2, c1, c0}; // Собираем переносы в вектор
     
-endmodule
+endmodule // Конец модуля full_add_3b

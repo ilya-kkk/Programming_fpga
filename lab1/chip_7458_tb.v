@@ -1,4 +1,5 @@
 `timescale 1ns/100ps // 1 ns time unit, 100 ps resolution
+`include "chip_7458.v"
 
 module chip_7458_tb;
 

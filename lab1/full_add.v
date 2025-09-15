@@ -1,8 +1,9 @@
-module full_add ( 
-    input a, b, cin,
-    output sum, cout );
+module full_add ( // Однобитный полный сумматор
+    input a, b, cin, // Два бита-операнда и входной перенос
+    output sum, cout ); // Выход суммы и выходной перенос
 
-    // write code here
+    assign sum  = a ^ b ^ cin; // Сумма: XOR всех трех входов
+    assign cout = (a & b) | (a & cin) | (b & cin); // Перенос: когда хотя бы две единицы
 
 
-endmodule
+endmodule // Конец модуля full_add

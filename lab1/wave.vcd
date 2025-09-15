@@ -1,0 +1,104 @@
+$date
+	Mon Sep 15 12:50:16 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module part_3_top_tb $end
+$var event 1 ! gen_result $end
+$var wire 32 " sum [31:0] $end
+$var wire 1 # mismatch $end
+$var reg 32 $ a [31:0] $end
+$var reg 32 % b [31:0] $end
+$var reg 1 & isErr $end
+$var reg 32 ' sum_compare [31:0] $end
+$var reg 16 ( time_of_err [15:0] $end
+$scope module top0 $end
+$var wire 32 ) a [31:0] $end
+$var wire 32 * b [31:0] $end
+$var wire 1 + cin $end
+$var wire 32 , sum [31:0] $end
+$var wire 16 - low_sum [15:0] $end
+$var wire 16 . high_sum [15:0] $end
+$var wire 1 / carry32 $end
+$var wire 1 0 carry16 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+00
+0/
+b0 .
+b0 -
+b0 ,
+z+
+b0 *
+b0 )
+bx (
+b0 '
+0&
+b0 %
+b0 $
+0#
+b0 "
+1!
+$end
+#50
+b1 "
+b1 ,
+b1 -
+0#
+b1 '
+b1 %
+b1 *
+#100
+b10 "
+b10 ,
+b10 -
+0#
+b10 '
+b10 %
+b10 *
+#150
+b11 "
+b11 ,
+b11 -
+0#
+b11 '
+b1 $
+b1 )
+#200
+b1111111111111111 "
+b1111111111111111 ,
+b1111111111111111 -
+0#
+b1111111111111111 '
+b0 %
+b0 *
+b1111111111111111 $
+b1111111111111111 )
+#250
+b1 .
+b10000000000000000 "
+b10000000000000000 ,
+b0 -
+10
+0#
+b10000000000000000 '
+b1 %
+b1 *
+#300
+b1100110011000000 -
+b111100110011000000 "
+b111100110011000000 ,
+b11 .
+0#
+b111100110011000000 '
+b101100110011000001 %
+b101100110011000001 *
+#350
+1!

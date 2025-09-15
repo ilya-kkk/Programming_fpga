@@ -1,5 +1,5 @@
 `timescale 1ns/100ps // 1 ns time unit, 100 ps resolution
-
+`include "full_add.v"
 module full_add_tb;
 
 	reg a = 0, b = 0, carry = 0;

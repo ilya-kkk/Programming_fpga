@@ -1,6 +1,24 @@
 
-module part_2_top_module (input [7:0]d, input [1:0]sel, input clk, output reg [7:0]q);
+module part_2_top_module (input [7:0]d, input [1:0]sel, input clk, output reg [7:0]q); // Три 8-битных регистра с мультиплексором на выходе
 
-    // write code here
+    reg [7:0] q1; // Регистр задержки на 1 такт
+    reg [7:0] q2; // Регистр задержки на 2 такта
+    reg [7:0] q3; // Регистр задержки на 3 такта
 
-endmodule
+    always @ (posedge clk) begin // Сдвиг/задержка данных по такту
+        q1 <= d;   // Первый регистр принимает вход d
+        q2 <= q1;  // Второй принимает выход первого
+        q3 <= q2;  // Третий принимает выход второго
+    end
+
+    always @(*) begin // Комбин. выбор выхода по селектору
+        case (sel)
+            2'd0: q = d;   // Без задержки
+            2'd1: q = q1;  // Задержка 1 такт
+            2'd2: q = q2;  // Задержка 2 такта
+            2'd3: q = q3;  // Задержка 3 такта
+            default: q = 8'd0; // Защита по умолчанию
+        endcase
+    end
+
+endmodule // Конец модуля part_2_top_module

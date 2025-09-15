@@ -1,4 +1,5 @@
 `timescale 1ns/100ps // 1 ns time unit, 100 ps resolution
+`include "part_5_top_module.v"
 
 module part_5_top_tb;
 	reg [31:0]a = 0,b = 0;

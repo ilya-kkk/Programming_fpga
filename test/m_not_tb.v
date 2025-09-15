@@ -1,5 +1,7 @@
 `timescale 1ns/100ps // 1 ns time unit, 100 ps resolution
 
+`include "test/m_not.v"
+
 module test_not;
 
 	reg a = 0;
